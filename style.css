@@ -1,0 +1,19 @@
+body {
+	margin: 10px;
+	font-size: 1.1rem;
+	font-family: "Courier New", Courier, monospace;
+	text-align: center;
+}
+
+.container {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	justify-items: center;
+	grid-gap: 5px;
+}
+.container > div {
+	border: 2px solid gray;
+	height: 150px;
+	width: 130px;
+	/* line-height: 1.8rem; */
+}
