@@ -9,13 +9,22 @@
 	</head>
 	<body>
 		<h2>My Library</h2>
-		<div class="container">
-			<div>
-				<p>title:book1</p>
-				<p>author:name</p>
-				<p>pages:238</p>
+		<main>
+			<form id="form" onsubmit="return false;">
+				<input type="text" placeholder="title" id="title" / required> <br />
+				<input type="text" placeholder="author" id="author" / required> <br />
+				<input type="number" placeholder="pages" id="pages" / required> <br />
+
+				<input type="submit" value="submit" id="submit" />
+			</form>
+			<div class="container">
+				<div>
+					<p>title:book1</p>
+					<p>author:name</p>
+					<p>pages:238</p>
+				</div>
 			</div>
-		</div>
+		</main>
 		<script src="script.js"></script>
 	</body>
 </html>
