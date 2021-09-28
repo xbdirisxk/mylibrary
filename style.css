@@ -1,33 +1,87 @@
+@import url("https://fonts.googleapis.com/css2?family=Gemunu+Libre&display=swap");
+
 body {
-	font-size: 1.1rem;
-	font-family: "Courier New", Courier, monospace;
+	font-size: 1.3rem;
+	font-family: "Gemunu Libre", monospace;
 	text-align: center;
+	background-color: hsl(0, 0%, 98%);
 }
 
-main {
+.container {
 	display: flex;
 }
 
-#form {
+/* new book */
+.new-book {
 	flex: 1;
-	width: 250px;
-	border-right: 2px solid gray;
+	border-right: 3px solid hsl(0, 0%, 50%);
+	margin-left: 5px;
 }
-input {
-	margin: 10px;
+
+#input-fields {
+	/* some styles */
+}
+
+input[type="text"],
+input[type="number"] {
+	margin: 7px;
+	padding: 10px;
+	width: 40vh;
+	font-size: 1.4rem;
+	font-family: "Gemunu Libre", monospace;
+	box-sizing: border-box;
+	border: 3px solid hsl(0, 0%, 50%);
+	border-radius: 5px;
+	outline: none;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+	border: 3px solid #000;
+	transition: 0.5s;
+}
+input[type="submit"] {
+	margin: 9px;
+	padding: 8px;
+	width: 10vh;
+	font-size: 1.2rem;
+	font-family: "Gemunu Libre", monospace;
+}
+#input-fields > span {
+	display: block;
+	font-size: 0.9rem;
+	font-family: monospace;
+	color: hsl(0, 100%, 50%);
 }
 
 /* book display */
-.container {
+.library-container {
 	flex: 3;
+}
+
+.library {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
 	justify-items: center;
 	grid-gap: 5px;
+	margin: 10px;
 }
-.container > div {
-	border: 3px solid gray;
-	height: 150px;
-	width: 130px;
-	/* line-height: 1.8rem; */
+.library > div {
+	border: 3px solid hsl(0, 0%, 50%);
+	height: 40vh;
+	width: 30vh;
+	line-height: 1.8rem;
+	background-color: hsl(0, 0%, 95%);
+}
+
+/* book styles */
+.title {
+	font-weight: bolder;
+	font-size: 2rem;
+}
+.author {
+	font-size: 1.5rem;
+}
+.pages {
+	color: hsl(0, 0%, 50%);
 }

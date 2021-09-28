@@ -8,23 +8,30 @@
 		<title>Library</title>
 	</head>
 	<body>
-		<h2>My Library</h2>
-		<main>
-			<form id="form" onsubmit="return false;">
-				<input type="text" placeholder="title" id="title" / required> <br />
-				<input type="text" placeholder="author" id="author" / required> <br />
-				<input type="number" placeholder="pages" id="pages" / required> <br />
-
-				<input type="submit" value="submit" id="submit" />
-			</form>
-			<div class="container">
-				<div>
-					<p>title:book1</p>
-					<p>author:name</p>
-					<p>pages:238</p>
+		<div class="container">
+			<div class="new-book">
+				<h2>New Book</h2>
+				<div id="input-fields">
+					<input type="text" placeholder="title" id="title" / required> <br />
+					<input type="text" placeholder="author" id="author" / required> <br />
+					<input type="number" placeholder="pages" id="pages" min="20"/
+					required> <br />
+					<input type="submit" value="add" id="submit" />
 				</div>
 			</div>
-		</main>
+			<div class="library-container">
+				<h1>My Library</h1>
+				<div class="library">
+					<div>
+						<p class="title">Siinlay</p>
+						by
+						<p class="author">yuusuf shaacir</p>
+						<p class="pages">421</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
 		<script src="script.js"></script>
 	</body>
 </html>

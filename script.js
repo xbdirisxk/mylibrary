@@ -9,19 +9,39 @@ function book(title, author, pages) {
 }
 
 function addBookToLibrary() {
-	let book1 = new book(inputTitle, inputAuthor, inputPages);
-	myLibrary.push(book1);
-	addLastBook();
+	let newBook = new book(inputTitle.value, inputAuthor.value, inputPages.value);
+	myLibrary.push(newBook);
+	displayNewBook();
+
+	// clear input fields after submit
+	inputTitle.value = null;
+	inputAuthor.value = null;
+	inputPages.value = null;
 }
 
-const inputTitle = document.querySelector("#title").value;
-const inputAuthor = document.querySelector("#author").value;
-const inputPages = document.querySelector("#pages").value;
+const inputTitle = document.querySelector("#title");
+const inputAuthor = document.querySelector("#author");
+const inputPages = document.querySelector("#pages");
 const submit = document.querySelector("#submit");
 
-const container = document.querySelector(".container");
+const libraryDisplay = document.querySelector(".library");
 
-submit.addEventListener("click", addBookToLibrary);
+let errorMessage = document.createElement("span");
+let fields = document.querySelector("#input-fields");
+
+submit.addEventListener("click", () => {
+	if (
+		inputTitle.value.length == 0 ||
+		inputAuthor.value.length == 0 ||
+		inputPages.value.length == 0
+	) {
+		errorMessage.textContent = "all fields are required";
+		fields.insertBefore(errorMessage, submit);
+	} else {
+		addBookToLibrary();
+		fields.removeChild(errorMessage);
+	}
+});
 
 function createNewBox() {
 	for (let key in myLibrary) {
@@ -29,31 +49,35 @@ function createNewBox() {
 		let bookbox = document.createElement("div");
 
 		let p = document.createElement("p");
+		p.classList.add("title");
 		p.textContent = book.title;
 		bookbox.append(p);
 
 		p = document.createElement("p");
+		p.classList.add("author");
 		p.textContent = book.author;
 		bookbox.append(p);
 
 		p = document.createElement("p");
+		p.classList.add("pages");
 		p.textContent = book.pages;
 		bookbox.append(p);
 
-		container.append(bookbox);
+		libraryDisplay.append(bookbox);
 	}
 }
 
-function addLastBook() {
+function displayNewBook() {
 	let lastBook = myLibrary[myLibrary.length - 1];
 	let bookbox = document.createElement("div");
+	let p = document.createElement("p");
 
 	for (let key in lastBook) {
-		let p = document.createElement("p");
+		p = document.createElement("p");
 		p.textContent = lastBook[key];
 		bookbox.append(p);
 	}
-	container.append(bookbox);
+	libraryDisplay.append(bookbox);
 }
 
 createNewBox();
