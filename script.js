@@ -1,5 +1,9 @@
 let myLibrary = [
-	{ title: "dharaaro xasuustood", author: "guuleed", pages: 412 },
+	{
+		title: "How to win friends and influence people",
+		author: "guuleed",
+		pages: 412,
+	},
 ];
 
 function book(title, author, pages) {
@@ -24,6 +28,7 @@ const inputAuthor = document.querySelector("#author");
 const inputPages = document.querySelector("#pages");
 const submit = document.querySelector("#submit");
 
+let bookInfo = document.querySelector(".book-info");
 const libraryDisplay = document.querySelector(".library");
 
 let errorMessage = document.createElement("span");
@@ -64,8 +69,11 @@ function createNewBox() {
 
 		p = document.createElement("p");
 		p.classList.add("pages");
-		p.textContent = book.pages;
+		p.textContent = "Pages: " + book.pages;
 		bookbox.append(p);
+
+		bookInfo = document.querySelector(".book-info");
+		bookbox.append(bookInfo);
 
 		libraryDisplay.append(bookbox);
 	}
@@ -91,8 +99,11 @@ function displayNewBook() {
 
 	p = document.createElement("p");
 	p.classList.add("pages");
-	p.textContent = lastBook.pages;
+	p.textContent = "Pages: " + lastBook.pages;
 	bookbox.append(p);
+
+	bookInfo = document.querySelector(".book-info");
+	bookbox.append(bookInfo);
 
 	libraryDisplay.append(bookbox);
 }
