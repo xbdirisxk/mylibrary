@@ -53,6 +53,10 @@ function createNewBox() {
 		p.textContent = book.title;
 		bookbox.append(p);
 
+		let span = document.createElement("span");
+		span.textContent = "by";
+		bookbox.append(span);
+
 		p = document.createElement("p");
 		p.classList.add("author");
 		p.textContent = book.author;
@@ -70,14 +74,35 @@ function createNewBox() {
 function displayNewBook() {
 	let lastBook = myLibrary[myLibrary.length - 1];
 	let bookbox = document.createElement("div");
-	let p = document.createElement("p");
 
-	for (let key in lastBook) {
-		p = document.createElement("p");
-		p.textContent = lastBook[key];
-		bookbox.append(p);
-	}
+	let p = document.createElement("p");
+	p.classList.add("title");
+	p.textContent = lastBook.title;
+	bookbox.append(p);
+
+	let span = document.createElement("span");
+	span.textContent = "by";
+	bookbox.append(span);
+
+	p = document.createElement("p");
+	p.classList.add("author");
+	p.textContent = lastBook.author;
+	bookbox.append(p);
+
+	p = document.createElement("p");
+	p.classList.add("pages");
+	p.textContent = lastBook.pages;
+	bookbox.append(p);
+
 	libraryDisplay.append(bookbox);
+}
+
+// trigger submit on Enter key
+title.addEventListener("keyup", enterKey);
+author.addEventListener("keyup", enterKey);
+pages.addEventListener("keyup", enterKey);
+function enterKey(event) {
+	if (event.keyCode == 13) submit.click();
 }
 
 createNewBox();
