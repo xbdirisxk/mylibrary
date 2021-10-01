@@ -28,7 +28,6 @@ const inputAuthor = document.querySelector("#author");
 const inputPages = document.querySelector("#pages");
 const submit = document.querySelector("#submit");
 
-let bookInfo = document.querySelector(".book-info");
 const libraryDisplay = document.querySelector(".library");
 
 let errorMessage = document.createElement("span");
@@ -44,14 +43,15 @@ submit.addEventListener("click", () => {
 		fields.insertBefore(errorMessage, submit);
 	} else {
 		addBookToLibrary();
-		fields.removeChild(errorMessage);
+		if (errorMessage.firstChild) fields.removeChild(errorMessage);
 	}
 });
 
+let bookbox;
 function createNewBox() {
 	for (let key in myLibrary) {
 		let book = myLibrary[key];
-		let bookbox = document.createElement("div");
+		bookbox = document.createElement("div");
 
 		let p = document.createElement("p");
 		p.classList.add("title");
@@ -72,8 +72,7 @@ function createNewBox() {
 		p.textContent = "Pages: " + book.pages;
 		bookbox.append(p);
 
-		bookInfo = document.querySelector(".book-info");
-		bookbox.append(bookInfo);
+		bookInfo();
 
 		libraryDisplay.append(bookbox);
 	}
@@ -81,7 +80,7 @@ function createNewBox() {
 
 function displayNewBook() {
 	let lastBook = myLibrary[myLibrary.length - 1];
-	let bookbox = document.createElement("div");
+	bookbox = document.createElement("div");
 
 	let p = document.createElement("p");
 	p.classList.add("title");
@@ -102,10 +101,40 @@ function displayNewBook() {
 	p.textContent = "Pages: " + lastBook.pages;
 	bookbox.append(p);
 
-	bookInfo = document.querySelector(".book-info");
-	bookbox.append(bookInfo);
+	bookInfo();
 
 	libraryDisplay.append(bookbox);
+}
+
+function bookInfo() {
+	let div = document.createElement("div");
+	div.classList.add("book-info");
+
+	let button = document.createElement("button");
+	button.textContent = "remove";
+	div.append(button);
+
+	let insideDiv = document.createElement("div");
+	insideDiv.classList.add("readed");
+	div.append(insideDiv);
+
+	let read = document.createElement("span");
+	read.textContent = "read";
+	insideDiv.append(read);
+
+	let label = document.createElement("label");
+	label.classList.add("switch");
+	insideDiv.append(label);
+
+	let input = document.createElement("input");
+	input.setAttribute("type", "checkbox");
+	label.append(input);
+
+	let round = document.createElement("span");
+	round.classList.add("slider", "round");
+	label.append(round);
+
+	bookbox.append(div);
 }
 
 // trigger submit on Enter key
