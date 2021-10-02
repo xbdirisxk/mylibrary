@@ -72,6 +72,7 @@ input[type="submit"] {
 	width: 30vh;
 	line-height: 1.8rem;
 	background-color: hsl(0, 0%, 95%);
+	border-radius: 6px;
 }
 
 /* book styles */
@@ -95,7 +96,17 @@ input[type="submit"] {
 	justify-content: space-between;
 	padding: 20px;
 }
-
+.book-info > button {
+	font-size: 0.9rem;
+	font-family: monospace;
+	border: 2px solid hsl(0, 0%, 73%);
+	border-radius: 3px;
+}
+.book-info > button:hover {
+	background-color: hsl(0, 0%, 91%);
+	cursor: pointer;
+	transition: 0.2s;
+}
 /* ---------------------- */
 /* read toggle switch */
 .readed > span {

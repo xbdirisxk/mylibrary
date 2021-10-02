@@ -1,8 +1,13 @@
 let myLibrary = [
 	{
-		title: "How to win friends and influence people",
-		author: "guuleed",
+		title: "Siinlay",
+		author: "yuusuf shaacir",
 		pages: 412,
+	},
+	{
+		title: "How to win friends and influence people",
+		author: "del carnigue",
+		pages: 512,
 	},
 ];
 
@@ -47,6 +52,7 @@ submit.addEventListener("click", () => {
 	}
 });
 
+// create book display elements
 let bookbox;
 function createNewBox() {
 	for (let key in myLibrary) {
@@ -73,11 +79,12 @@ function createNewBox() {
 		bookbox.append(p);
 
 		bookInfo();
+		// bookbox.addEventListener(data-index, )
 
 		libraryDisplay.append(bookbox);
 	}
 }
-
+let removeButtons; // remove button variable
 function displayNewBook() {
 	let lastBook = myLibrary[myLibrary.length - 1];
 	bookbox = document.createElement("div");
@@ -135,8 +142,11 @@ function bookInfo() {
 	label.append(round);
 
 	bookbox.append(div);
+	////////////////////////////////
+	removeButtons = document.querySelectorAll(".book-info>button");
 }
 
+createNewBox(); // display books in the my library array
 // trigger submit on Enter key
 title.addEventListener("keyup", enterKey);
 author.addEventListener("keyup", enterKey);
@@ -145,4 +155,18 @@ function enterKey(event) {
 	if (event.keyCode == 13) submit.click();
 }
 
-createNewBox();
+// remove book from library -- in development...
+removeButtons = document.querySelectorAll(".book-info>button");
+removeButtons.forEach(removeBook);
+function removeBook(book) {
+	book.addEventListener("click", () => {
+		let title = book.parentElement.parentElement.childNodes[0];
+		console.log(title);
+	});
+}
+
+// local storage
+
+function saveInLocal() {
+	localStorage.setItem("library", myLibrary);
+}
