@@ -12,13 +12,11 @@ let myLibrary = [
 ];
 
 function book(title, author, pages) {
-	this.title = title;
-	this.author = author;
-	this.pages = pages;
+	return { title, author, pages };
 }
 
 function addBookToLibrary() {
-	let newBook = new book(inputTitle.value, inputAuthor.value, inputPages.value);
+	let newBook = book(inputTitle.value, inputAuthor.value, inputPages.value);
 	myLibrary.push(newBook);
 	displayNewBook();
 
@@ -27,6 +25,8 @@ function addBookToLibrary() {
 	inputAuthor.value = null;
 	inputPages.value = null;
 }
+
+// UI (DOM)
 
 const inputTitle = document.querySelector("#title");
 const inputAuthor = document.querySelector("#author");
