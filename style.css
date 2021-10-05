@@ -78,15 +78,18 @@ input[type="submit"] {
 /* book styles */
 .title {
 	font-weight: bolder;
-	font-size: 2.1rem;
-	font-variant: small-caps;
+	font-size: 1.3rem;
+}
+.library > div > span {
+	font-size: 0.8rem;
 }
 .author {
-	font-size: 1.5rem;
-	padding-bottom: 20px;
+	font-size: 1.2rem;
+	font-variant: small-caps;
 }
 .pages {
 	color: hsl(0, 0%, 50%);
+	font-size: 0.8rem;
 }
 
 .book-info {
@@ -94,7 +97,7 @@ input[type="submit"] {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	padding: 20px;
+	padding: 7px;
 }
 .book-info > button {
 	font-size: 0.9rem;
@@ -107,6 +110,33 @@ input[type="submit"] {
 	cursor: pointer;
 	transition: 0.2s;
 }
+
+@media only screen and (min-width: 1400px) {
+	.book-info {
+		background-color: hsl(0, 0%, 86%);
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 20px;
+	}
+	.title {
+		font-weight: bolder;
+		font-size: 2.1rem;
+	}
+	.library > div > span {
+		font-size: 1.2rem;
+	}
+	.author {
+		font-size: 1.5rem;
+		padding-bottom: 20px;
+		font-variant: small-caps;
+	}
+	.pages {
+		color: hsl(0, 0%, 50%);
+		font-size: 1.2rem;
+	}
+}
+
 /* ---------------------- */
 /* read toggle switch */
 .readed > span {
