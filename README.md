@@ -1,6 +1,6 @@
 # library
 
-spend time : 19+ hours
+spend time : 20+ hours
 
 what I learn ?
 hmmm every thing in this code

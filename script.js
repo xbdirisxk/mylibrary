@@ -33,7 +33,7 @@ const inputAuthor = document.querySelector("#author");
 const inputPages = document.querySelector("#pages");
 const submit = document.querySelector("#submit");
 
-const libraryDisplay = document.querySelector(".library");
+const bookShelf = document.querySelector(".book-shelf");
 
 let errorMessage = document.createElement("span");
 let fields = document.querySelector("#input-fields");
@@ -58,6 +58,7 @@ function createNewBox() {
 	for (let key in myLibrary) {
 		let book = myLibrary[key];
 		bookbox = document.createElement("div");
+		bookbox.setAttribute("id", key);
 
 		let p = document.createElement("p");
 		p.classList.add("title");
@@ -79,38 +80,30 @@ function createNewBox() {
 		bookbox.append(p);
 
 		bookInfo();
-		// bookbox.addEventListener(data-index, )
 
-		libraryDisplay.append(bookbox);
+		bookShelf.append(bookbox);
+	}
+
+	// remove book from library
+	let removeButtons = document.querySelectorAll(".book-info>button");
+	removeButtons.forEach(removeBook);
+	function removeBook(book) {
+		book.addEventListener("click", () => {
+			let bookID = book.parentElement.parentElement.id;
+
+			console.log(myLibrary);
+			myLibrary.splice(+bookID, 1);
+			console.log(myLibrary);
+			displayNewBook();
+		});
 	}
 }
-let removeButtons; // remove button variable
+
 function displayNewBook() {
-	let lastBook = myLibrary[myLibrary.length - 1];
-	bookbox = document.createElement("div");
-
-	let p = document.createElement("p");
-	p.classList.add("title");
-	p.textContent = lastBook.title;
-	bookbox.append(p);
-
-	let span = document.createElement("span");
-	span.textContent = "by";
-	bookbox.append(span);
-
-	p = document.createElement("p");
-	p.classList.add("author");
-	p.textContent = lastBook.author;
-	bookbox.append(p);
-
-	p = document.createElement("p");
-	p.classList.add("pages");
-	p.textContent = "Pages: " + lastBook.pages;
-	bookbox.append(p);
-
-	bookInfo();
-
-	libraryDisplay.append(bookbox);
+	while (bookShelf.firstChild) {
+		bookShelf.removeChild(bookShelf.firstChild);
+	}
+	createNewBox();
 }
 
 function bookInfo() {
@@ -142,31 +135,14 @@ function bookInfo() {
 	label.append(round);
 
 	bookbox.append(div);
-	////////////////////////////////
-	removeButtons = document.querySelectorAll(".book-info>button");
 }
 
 createNewBox(); // display books in the my library array
+
 // trigger submit on Enter key
 title.addEventListener("keyup", enterKey);
 author.addEventListener("keyup", enterKey);
 pages.addEventListener("keyup", enterKey);
 function enterKey(event) {
 	if (event.keyCode == 13) submit.click();
-}
-
-// remove book from library -- in development...
-removeButtons = document.querySelectorAll(".book-info>button");
-removeButtons.forEach(removeBook);
-function removeBook(book) {
-	book.addEventListener("click", () => {
-		let title = book.parentElement.parentElement.childNodes[0];
-		console.log(title);
-	});
-}
-
-// local storage
-
-function saveInLocal() {
-	localStorage.setItem("library", myLibrary);
 }
