@@ -22,6 +22,18 @@ body {
 	/* some styles */
 }
 
+.new-book > h3 {
+	margin-top: 90px;
+}
+
+.library-status {
+	margin: 20px;
+	margin-top: 30px;
+	border-top: 2px solid gray;
+	border-bottom: 2px solid gray;
+	padding: 10px;
+}
+
 input[type="text"],
 input[type="number"] {
 	margin: 7px;

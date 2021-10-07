@@ -1,10 +1,9 @@
 # library
 
-spend time : 20+ hours
+DEMO: https://xbdirisxk.github.io/mylibrary/
 
-what I learn ?
-hmmm every thing in this code
+_\*note that if you refresh the page all your newbooks will be gone_
 
-still on development...
+_\*or if you add new book all changes you make in the books will restart_
 
-google fonts: _"Gemunu Libre"_
+**still on development process...**

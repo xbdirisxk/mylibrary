@@ -2,6 +2,7 @@
 <html lang="en">
 	<head>
 		<link rel="stylesheet" href="style.css" />
+		<link rel="icon" href="library_icon.svg" />
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,11 +13,17 @@
 			<div class="new-book">
 				<h2>New Book</h2>
 				<div id="input-fields">
-					<input type="text" placeholder="title" id="title" / required> <br />
-					<input type="text" placeholder="author" id="author" / required> <br />
+					<input type="text" placeholder="title" id="title" / > <br />
+					<input type="text" placeholder="author" id="author" / > <br />
 					<input type="number" placeholder="pages" id="pages" min="20"/
 					required> <br />
 					<input type="submit" value="add" id="submit" />
+				</div>
+				<h3>library status</h3>
+				<div class="library-status">
+					<p class="readed-books"></p>
+					<p class="not-readed"></p>
+					<p class="total-books"></p>
 				</div>
 			</div>
 			<div class="library-container">

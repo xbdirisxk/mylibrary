@@ -7,7 +7,7 @@ let myLibrary = [
 	{
 		title: "How to win friends and influence people",
 		author: "del carnigue",
-		pages: 512,
+		pages: 291,
 	},
 ];
 
@@ -91,9 +91,7 @@ function createNewBox() {
 		book.addEventListener("click", () => {
 			let bookID = book.parentElement.parentElement.id;
 
-			console.log(myLibrary);
 			myLibrary.splice(+bookID, 1);
-			console.log(myLibrary);
 			displayNewBook();
 		});
 	}
@@ -104,6 +102,7 @@ function displayNewBook() {
 		bookShelf.removeChild(bookShelf.firstChild);
 	}
 	createNewBox();
+	bookStatus();
 }
 
 function bookInfo() {
@@ -146,3 +145,38 @@ pages.addEventListener("keyup", enterKey);
 function enterKey(event) {
 	if (event.keyCode == 13) submit.click();
 }
+
+// library status
+
+function bookStatus() {
+	let read = document.querySelector(".library-status>.readed-books");
+	let notRead = document.querySelector(".library-status>.not-readed");
+	let totalBooks = document.querySelector(".library-status>.total-books");
+	let checkboxes = document.querySelectorAll(
+		".book-info>.readed>.switch>input"
+	);
+
+	// change this when u connect the library into database
+	let checkedBooks = 0;
+	let uncheckedBooks = myLibrary.length;
+
+	checkboxes.forEach((checkbox) => {
+		checkbox.addEventListener("click", () => {
+			if (checkbox.checked == true) {
+				checkedBooks++;
+				uncheckedBooks--;
+			} else if (checkbox.checked == false) {
+				checkedBooks--;
+				uncheckedBooks++;
+			}
+			read.textContent = `read books: ${checkedBooks}`;
+			notRead.textContent = `not read books: ${uncheckedBooks}`;
+		});
+	});
+
+	read.textContent = `read books: ${checkedBooks}`;
+	notRead.textContent = `not read books: ${uncheckedBooks}`;
+
+	totalBooks.textContent = `Total books: ${myLibrary.length}`;
+}
+bookStatus();
