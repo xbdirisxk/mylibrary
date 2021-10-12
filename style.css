@@ -18,12 +18,8 @@ body {
 	margin-left: 5px;
 }
 
-#input-fields {
-	/* some styles */
-}
-
 .new-book > h3 {
-	margin-top: 90px;
+	margin-top: 50px;
 }
 
 .library-status {
@@ -42,7 +38,7 @@ input[type="number"] {
 	font-size: 1.4rem;
 	font-family: "Gemunu Libre", monospace;
 	box-sizing: border-box;
-	border: 3px solid hsl(0, 0%, 50%);
+	border: 3px solid hsl(0, 7%, 86%);
 	border-radius: 5px;
 	outline: none;
 }
@@ -83,38 +79,51 @@ input[type="submit"] {
 	height: 40vh;
 	width: 30vh;
 	line-height: 1.8rem;
-	background-color: hsl(0, 0%, 95%);
+	background-color: hsl(0, 0%, 94%);
 	border-radius: 6px;
 }
 
 /* book styles */
+.book-shelf > div {
+	display: flex;
+	flex-direction: column;
+}
+
 .title {
 	font-weight: bolder;
 	font-size: 1.3rem;
+	margin-bottom: 2px;
+	height: 40%;
 }
+
 .book-shelf > div > span {
 	font-size: 0.8rem;
+	margin: 0;
 }
 .author {
+	margin: 5px auto;
+	height: 10%;
 	font-size: 1.2rem;
 	font-variant: small-caps;
 }
 .pages {
-	color: hsl(0, 0%, 50%);
-	font-size: 0.8rem;
+	color: hsl(0, 0%, 40%);
+	font-size: 0.9rem;
 }
 
 .book-info {
+	margin-bottom: 5px;
+	height: 40%;
 	background-color: hsl(0, 0%, 86%);
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	padding: 7px;
+	padding: 5px;
 }
 .book-info > button {
 	font-size: 0.9rem;
 	font-family: monospace;
-	border: 2px solid hsl(0, 0%, 73%);
+	border: 1px solid hsl(0, 0%, 73%);
 	border-radius: 3px;
 }
 .book-info > button:hover {
