@@ -27,7 +27,10 @@ body {
 	margin-top: 30px;
 	border-top: 2px solid gray;
 	border-bottom: 2px solid gray;
-	padding: 10px;
+	padding: 6px;
+}
+.library-status > p {
+	line-height: 1rem;
 }
 
 input[type="text"],
@@ -76,8 +79,8 @@ input[type="submit"] {
 }
 .book-shelf > div {
 	border: 3px solid hsl(0, 0%, 50%);
-	height: 40vh;
-	width: 30vh;
+	height: 47vh;
+	width: 17vw;
 	line-height: 1.8rem;
 	background-color: hsl(0, 0%, 94%);
 	border-radius: 6px;
@@ -97,7 +100,7 @@ input[type="submit"] {
 }
 
 .book-shelf > div > span {
-	font-size: 0.8rem;
+	font-size: 0.9rem;
 	margin: 0;
 }
 .author {
@@ -139,6 +142,7 @@ input[type="submit"] {
 		align-items: center;
 		justify-content: space-between;
 		padding: 20px;
+		height:11%;
 	}
 	.title {
 		font-weight: bolder;
